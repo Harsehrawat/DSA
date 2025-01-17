@@ -1,0 +1,2 @@
+-- Task : Given sorted array construct BST of minimal Height .
+*  The minimal height of a BST is when left and right subtree are close to each other in height .
