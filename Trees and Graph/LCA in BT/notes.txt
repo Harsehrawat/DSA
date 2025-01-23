@@ -1,0 +1,4 @@
+# Approach for this :
+
+Step 1 -> if both p and q on diff side of root -> retunr root
+Step 2 -> if both p and q are on same side of root -> traverse to the side of tree where they both are present.
