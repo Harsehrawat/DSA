@@ -1,0 +1,9 @@
+When I sit down to write a recursive algorithm to solve a problem, I have found it to be helpful to go through the following thought process in order to decide how the recursive call should be structured:
+1 : Break the problem I am trying to solve down into a problem that is one step simpler
+2 : Assume that my function will work to solve the simpler problem — really believe it beyond any doubt
+3 : Ask myself: Since I know I can solve the simpler problem, how would I solve the more complex problem?
+
+try applying the thought process above to a few of the following problems — no loops allowed!
+1 : Go through an array and print out all of the elements
+2 : Determine whether or not a string is a palindrome
+3 : Calculate a raised to the power of b
