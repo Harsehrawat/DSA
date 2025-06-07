@@ -1,0 +1,14 @@
+There are basically given conditions on which two differnet output format are asked :
+
+Output Type 1 :->  (with duplicates)
+in this type,apply normal thinking process of recursion that crossed ur mind for the given condition.
+
+
+Output Type 2 :-> (without duplicates)
+in this type, to satisfy w/out duplicates we need to follow a pattern :
+first, sort the given array
+now rather than running callback directly into rec. fn .. do them now into a for-loop..
+the for-loop would run i from currentIndex till nums.length..
+it would just conitnue if i > index && nums[i] == nums[i-1]
+other differnce from type 1 is that..
+here we would clear back-track and won't call our fn once again
