@@ -1,0 +1,10 @@
+-- create an algorithm which creates linkedlist for all the dephts present in tree.
+
+* Approach : 
+
+-> initially add root in linkedlist<TreeNode> current 
+-> add current to linkedlist<linkedlist<TreeNode>> result
+-> assign current to new linkedlist<TreeNode> parent , parent = current;
+-> empty current , current = new linkedlist<>;
+-> in current now add parent.left and parent.right for each parent element
+-> Repeat till current size is null after iterating over parent .

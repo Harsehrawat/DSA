@@ -1,0 +1,15 @@
+Write a method to replace all spaces in a string with '%20'. 
+ex. i/p : "Mr John Smith"
+    o/p : "Mr%20John%20Smith"
+
+* Concept of StringBuilder & StringBuffer :
+StringBuffer: A thread-safe, mutable sequence of characters that can be modified without creating new objects. Operations are synchronized, making it suitable for multi-threaded environments.
+StringBuilder: A non-thread-safe, mutable sequence of characters. It offers better performance in single-threaded environments due to the absence of synchronization.
+
+
+StringBuffer Use Cases
+Multi-threaded Applications: For example, when two threads are appending data to the same string.
+Logging Systems: To ensure thread-safe logging of messages.
+StringBuilder Use Cases
+Single-threaded Applications: For example, when manipulating strings in algorithms like permutations or combinations.
+Temporary Buffers: Ideal for temporary string storage and manipulation in single-threaded operations.
