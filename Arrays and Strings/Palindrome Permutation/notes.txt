@@ -1,0 +1,4 @@
+Given a string,write a function to check if it is a permutation of a palindrome. A permuatation is a re-arrangement of letters.
+ex. i/p : Tact Coa
+    o/p : True (permuatations : Taco Cat, Atco cat, etc.)
+    
