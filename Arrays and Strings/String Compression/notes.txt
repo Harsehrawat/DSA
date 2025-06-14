@@ -1,0 +1,3 @@
+implement a compression fn on string s.
+for ex. "aabcccccaaa" would become a2b1c5a3 .
+return compressed string only if size of compressed string is lesser than original string
