@@ -1,0 +1,20 @@
+There are three types os edits that can be performed on strings: insert a charcater,remoev a charcater,replace a character.
+Given two strings,write a function to check if they are one edit(or zero edit) away from each other.
+
+ex. pale,ple : True
+    pales,pale : True
+    pale, bale : True
+    pale, bake : false
+
+
+* Approach : 
+there are two cases : one where lenght mismatch due to insert or remove operation .
+and second case when lenght equal but only one mismatch should be allowed
+
+-> for first case : 
+    traverse over longer string, keep i and j initially at 0,
+    incr. both if matching,
+    for mismatch .. inc. i and stick to j
+    
+-> for second case :
+    the mismatch count > 1 : return false;
