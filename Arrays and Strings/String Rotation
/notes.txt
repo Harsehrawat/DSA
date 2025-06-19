@@ -1,0 +1,10 @@
+Assume you have a method isSubstring which checks if one word is a substring of another. Given two strings s1 and s2, 
+write code to check if s2 is a rotation of s1 using only one call to isSubstring. 
+Ex. "waterbottle" is a rotation of "erbottlewat"
+
+Approach : 
+If s1 and s2 are two equal strings that are rotation of each other,
+then s1 can be parted into division of x,y => xy
+and s2 can be made twice concatenation of itself , i.e. s2 = s2+s2 
+now if they were equal and a valid rotation then for sure : 
+new s2 contains xy in it as a substring.
