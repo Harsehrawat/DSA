@@ -1,6 +1,8 @@
+package myLinkedList;
+
 public class Operations {
 
-    Node head;
+    public Node head;
 
     public int getSize(){
         if(head == null){
@@ -99,4 +101,5 @@ public class Operations {
         return;
 
     }
+
 }
