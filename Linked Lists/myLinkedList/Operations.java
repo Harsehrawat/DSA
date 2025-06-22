@@ -1,28 +1,23 @@
 package myLinkedList;
 
 public class Operations {
+    public Node head;
 
-    public static Node head;
-
-    public static int getSize(Node head) {
-        if (head == null) return 0;
-    
+    public int getSize() {
         int size = 0;
         Node temp = head;
         while (temp != null) {
-            temp = temp.next;
             size++;
+            temp = temp.next;
         }
         return size;
     }
-    
 
-    public static void printList() {
+    public void printList() {
         if (head == null) {
             System.out.println("Linked List is empty.");
             return;
         }
-    
         Node temp = head;
         while (temp != null) {
             System.out.print(temp.data + " -> ");
@@ -30,93 +25,93 @@ public class Operations {
         }
         System.out.println("null");
     }
-    
 
-    public static void appendToTail(int data){
-        if(head == null){
-            Node temp = new Node(data);
-            head = temp;
+    public void appendToTail(int data) {
+        if (head == null) {
+            head = new Node(data);
             return;
         }
-        
+
         Node temp = head;
-        while (temp.next!=null) {
+        while (temp.next != null) {
             temp = temp.next;
         }
-        Node n = new Node(data);
-        temp.next = n;
+
+        temp.next = new Node(data);
     }
 
-    public static void deleteNode(int data){
-        // to delete, i need to stop at node previous to it
-        if(head == null){
+    public void deleteNode(int data) {
+        if (head == null) {
             System.out.println("LL is NULL , can't delete");
             return;
         }
 
-        if(head.data == data){
+        if (head.data == data) {
             head = head.next;
             System.out.println("Deleted");
             return;
         }
 
-        Node prevNode = head;
-        while (prevNode.next!= null) {
-            if(prevNode.next.data == data){
-                Node new_nextNode = prevNode.next.next;
-                prevNode.next = new_nextNode;
-                System.out.println("deleted");
+        Node prev = head;
+        while (prev.next != null) {
+            if (prev.next.data == data) {
+                prev.next = prev.next.next;
+                System.out.println("Deleted");
                 return;
             }
-            prevNode = prevNode.next;
+            prev = prev.next;
         }
 
-        System.out.println("LL Doesn't contain any node with data : " + data + " , can't perform deletion");
-
+        System.out.println("Value not found: " + data);
     }
 
-    public static void InsertNode(int index,int data){
-        int size = getSize(head);
-        if (index > size) {
-            System.out.println("L.L. is of size : " + size + " , can't perform insertion at index " + index);
-            return;
-        }
-        if(index == 0){
-            Node n = new Node(data);
-            n.next = head;
-            head = n;
+    public void insertNode(int index, int data) {
+        if (index == 0) {
+            Node newNode = new Node(data);
+            newNode.next = head;
+            head = newNode;
             return;
         }
 
-        Node prevNode = head;
-        int curr_index = 0;
-        while (curr_index < index - 1 && prevNode!= null) {
-            prevNode = prevNode.next;
-            curr_index++;
-        }
-        Node n = new Node(data);
-        n.next = prevNode.next;
-        prevNode.next = n;
-        return;
-
-    }
-
-    public Node findNode(Node head,int data){
-        if(head == null){
-            System.out.println("L.L. is already empty");
-            return null;
-        }
-
+        int count = 0;
         Node temp = head;
-        while (temp.next!=null && temp.data != data) {
+        while (temp != null && count < index - 1) {
+            count++;
             temp = temp.next;
         }
 
-        if(temp.data != data){
-            System.out.println("No Such Node with value : "+data+" found in L.L.");
-            return null;
+        if (temp == null) {
+            System.out.println("Index out of bounds");
+            return;
         }
 
-        return temp;
+        Node newNode = new Node(data);
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
+    public Node findNode(int data) {
+        Node temp = head;
+        while (temp != null) {
+            if (temp.data == data) {
+                return temp;
+            }
+            temp = temp.next;
+        }
+        System.out.println("No Such Node with value: " + data);
+        return null;
+    }
+
+    public Node reverseList(Node head) {
+        Node prev = null;
+        Node current = head;
+        while (current != null) {
+            Node nextNode = current.next;
+            current.next = prev;
+            prev = current;
+            current = nextNode;
+        }
+        head = prev; // Update head
+        return head;
     }
 }
