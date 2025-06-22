@@ -3,7 +3,7 @@ package myLinkedList;
 public class Operations {
     public Node head;
 
-    public int getSize() {
+    public int getSize(Node head) {
         int size = 0;
         Node temp = head;
         while (temp != null) {
