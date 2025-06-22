@@ -4,19 +4,18 @@ public class Operations {
 
     public Node head;
 
-    public int getSize(){
-        if(head == null){
-            return 0;
-        }
-
+    public static int getSize(Node head) {
+        if (head == null) return 0;
+    
         int size = 0;
         Node temp = head;
-        while(temp!=null){
+        while (temp != null) {
             temp = temp.next;
             size++;
         }
         return size;
     }
+    
 
     public void printList() {
         if (head == null) {
@@ -77,7 +76,7 @@ public class Operations {
     }
 
     public void InsertNode(int index,int data){
-        int size = getSize();
+        int size = getSize(head);
         if (index > size) {
             System.out.println("L.L. is of size : " + size + " , can't perform insertion at index " + index);
             return;
