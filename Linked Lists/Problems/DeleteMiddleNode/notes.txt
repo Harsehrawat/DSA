@@ -1,0 +1,5 @@
+Delete The node from the singly linked list given only access to that node .
+NOTE * The node may not be exact middle but for sure won't be the ƒirst or last node 
+
+Ex. Input : the node c from the L.L. a->b->c->d->e->f 
+    Result : nothing is returned, but the new linked list looks like a->b->d->e->f 

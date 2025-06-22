@@ -2,7 +2,7 @@ package myLinkedList;
 
 public class Operations {
 
-    public Node head;
+    public static Node head;
 
     public static int getSize(Node head) {
         if (head == null) return 0;
@@ -17,7 +17,7 @@ public class Operations {
     }
     
 
-    public void printList() {
+    public static void printList() {
         if (head == null) {
             System.out.println("Linked List is empty.");
             return;
@@ -32,7 +32,7 @@ public class Operations {
     }
     
 
-    public void appendToTail(int data){
+    public static void appendToTail(int data){
         if(head == null){
             Node temp = new Node(data);
             head = temp;
@@ -47,7 +47,7 @@ public class Operations {
         temp.next = n;
     }
 
-    public void deleteNode(int data){
+    public static void deleteNode(int data){
         // to delete, i need to stop at node previous to it
         if(head == null){
             System.out.println("LL is NULL , can't delete");
@@ -75,7 +75,7 @@ public class Operations {
 
     }
 
-    public void InsertNode(int index,int data){
+    public static void InsertNode(int index,int data){
         int size = getSize(head);
         if (index > size) {
             System.out.println("L.L. is of size : " + size + " , can't perform insertion at index " + index);
@@ -101,4 +101,22 @@ public class Operations {
 
     }
 
+    public Node findNode(Node head,int data){
+        if(head == null){
+            System.out.println("L.L. is already empty");
+            return null;
+        }
+
+        Node temp = head;
+        while (temp.next!=null && temp.data != data) {
+            temp = temp.next;
+        }
+
+        if(temp.data != data){
+            System.out.println("No Such Node with value : "+data+" found in L.L.");
+            return null;
+        }
+
+        return temp;
+    }
 }
