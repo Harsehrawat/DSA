@@ -1,0 +1,1 @@
+Write an algorithm that has a funciton min which returns the minimum element from the stack
