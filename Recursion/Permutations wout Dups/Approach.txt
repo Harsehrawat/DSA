@@ -1,0 +1,8 @@
+for generating permuatations :
+ex. a1a2 : a1a2, a2a1 
+now for a1a2a3 the permuatation would be nothing else but
+the permuatations of a1a2 which would be reshuffled by adding a3 at each avail. posn in those permuatations
+So : a1a2a3 : a3a1a2, a1a3a2, a1a2a3, { now for (a2a1) }  ; a3a212, a2a3a1, a2a1a3
+    
+
+    
