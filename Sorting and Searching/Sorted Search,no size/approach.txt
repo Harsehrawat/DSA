@@ -1,0 +1,6 @@
+I knew i can't set right to .size() 
+SO i set right to a random int { 10 } intially.
+if i get -1 for this right .. 
+i call my fn w/ new right => right / 2
+if i don't get -1 for this right 
+i apply normal B.S. constraints to shrink my searchspace now .
