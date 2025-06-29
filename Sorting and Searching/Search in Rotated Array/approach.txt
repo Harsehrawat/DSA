@@ -1,0 +1,18 @@
+* Main1.java 
+In this i've appraoched with determining if my array is rotated or not .
+if rotated .. i get the rotated index via getRotatedIndex function .
+    and i apply condn if target is b/w arr[0] && getRotatedIndex or either in b/w getRotatedIndex && arr[right];
+if not rotated .. i traverse over array and return index of target element
+
+T.C. O(n);
+
+* Main2.java 
+In this i've appraoched conept of reducing seach space for each iteration.
+If my arr[middle] >= arr[left] // means i am in left sorted partition .
+    i check if target actually also falls b/w arr[left] && arr[middle] .. if yes : right = middle-1;
+    else return left = middle+1
+If my arr[middle] <= arr[left] // means i am in right partition
+    i check if my target actually also falls in right partition i.e. b/w arr[middle] && arr[right] .. if yes : left = middle+1;
+    else return right = middle-1;
+
+T.C. O(nlog(n));
