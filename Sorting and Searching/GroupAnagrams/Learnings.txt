@@ -1,0 +1,2 @@
+* I can use Arrays.sort() on a char[] array to get lexicographically sorted char[]
+* map.computeIfAbsent(key, k -> new ArrayList<>()).add(s); // to add to list<String> as value
