@@ -37,6 +37,7 @@ public class Main {
 
         for (String s : strs) {
             String key = sortChars(s);  // Sorted version as key
+            System.out.println(key);
             map.computeIfAbsent(key, k -> new ArrayList<>()).add(s);
         }
 
