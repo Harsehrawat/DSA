@@ -8,3 +8,10 @@ then s1 can be parted into division of x,y => xy
 and s2 can be made twice concatenation of itself , i.e. s2 = s2+s2 
 now if they were equal and a valid rotation then for sure : 
 new s2 contains xy in it as a substring.
+
+ex. s1 = "erbottlewat" s2 = "lewaterbott"
+let x = "erbottl" y = "ewat" 
+"
+now s2 = "lewaterbott" + "lewaterbott" => "lewaterbottlewaterbott"
+now this s2 must contain xy as a substring in it 
+which in our ex. it contains xy as substring from index 5 to index 16
