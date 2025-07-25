@@ -1,0 +1,6 @@
+For SubArray, There's basically four algo that can be used
+1-> Brute Force
+2-> Sliding Window : This can be used when we are guaranteed there's no -ve element in the array 
+3-> Prefix Sum: Used when we need to deal w/ -ve numbers involved in array and for subArray where we've to keep process from starting of array
+4-> Suffix Sum: Used when we need to process sum from end of the array. ex. Removing minimal elements from the end so the remaining subarray meets some criteria.
+                                                                            Problems like “maximum score by removing elements from either end.”
