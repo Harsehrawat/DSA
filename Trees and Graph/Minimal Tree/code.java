@@ -14,15 +14,17 @@ class TreeNode{
 public class code {
     public static void main(String[] args) {
         int[] array = {1,2,3,4,5,6,7,8};
-        minimalBST(array);
+        TreeNode root = minimalBST(array);
 
+        System.out.println("Pre Order of achieved minimal BST is: ");
+        preorder(root);
     }
     
-    TreeNode minimalBST(int[] array){
+    static TreeNode minimalBST(int[] array){
         return createBST(array, 0, array.length-1);
     }
 
-    TreeNode createBST(int[] arr,int start,int end){
+    static TreeNode createBST(int[] arr,int start,int end){
         if(start>end) return null;
         // rec case.
         int mid = (start+end)/2;
@@ -32,5 +34,13 @@ public class code {
         node.right = createBST(arr, mid+1, end);
 
         return node;
+    }
+
+    static void preorder( TreeNode root){
+        if( root == null) return;
+        // preorder: root, left, right
+        System.out.print(root.val + ", ");
+        preorder(root.left);
+        preorder(root.right);
     }
 }

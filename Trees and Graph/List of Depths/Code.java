@@ -1,3 +1,4 @@
+import java.util.List; 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -23,37 +24,45 @@ public class Code {
         root.left.right = new TreeNode(5);
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
-
-        // Get list of depth levels
-        ArrayList<LinkedList<TreeNode>> result = depth(root);
-
-        // Print the levels
-        for (int i = 0; i < result.size(); i++) {
-            System.out.print("Level " + i + ": ");
-            for (TreeNode node : result.get(i)) {
-                System.out.print(node.val + " ");
-            }
-            System.out.println();
-        }
         
-    }
-    static ArrayList<LinkedList<TreeNode>> depth(TreeNode root){
-        ArrayList<LinkedList<TreeNode>> result = new ArrayList<>();
-        LinkedList<TreeNode> current = new LinkedList<>();
-
-        if(root!=null) current.add(root);
-
-        while (current.size()>0) {
-            result.add(current);
-            LinkedList<TreeNode> parents = current;
-            current = new LinkedList<>();
-
-            for(TreeNode parent : parents){
-                if(parent.left!=null) current.add(parent.left);
-                if(parent.right!=null) current.add(parent.right);
+        // so, I've to store nodes of each level in a linkedList .
+        ArrayList<TreeNode> Parent = new ArrayList<>();
+        if( root == null){
+            System.out.print("Tree is Null");
+        }
+        else{
+            Parent.add(root);
+            ArrayList<List<TreeNode>> result = new ArrayList<>();
+            result.add( Parent);
+            result = fillFunction( Parent, result);
+            // print list
+            // ✅ Print each level
+            int level = 0;
+            for (List<TreeNode> levelNodes : result) {
+                System.out.print("Level " + level + ": ");
+                for (TreeNode node : levelNodes) {
+                    System.out.print(node.val + " ");
+                }
+                System.out.println();
+                level++;
             }
         }
 
-        return result;
+    }
+    static ArrayList<List<TreeNode>> fillFunction(ArrayList<TreeNode> Parent, ArrayList<List<TreeNode>> result){
+        // i've parent nodes, hover over each and store child nodes of each of them 
+        ArrayList<TreeNode> childNodes = new ArrayList<>();
+        for( TreeNode currParent: Parent){
+            if( currParent.left != null) childNodes.add(currParent.left);
+            if( currParent.right != null) childNodes.add(currParent.right);
+        }
+
+        // now, either i'd be at end of BT or not
+        // if childNodes.size == 0, means Parent was the leafNodes already and no more childNodes available
+        if(childNodes.size() == 0){
+            return result;
+        }
+        result.add( childNodes);
+        return fillFunction( childNodes, result);
     }
 }
