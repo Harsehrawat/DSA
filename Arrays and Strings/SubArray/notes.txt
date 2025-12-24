@@ -4,3 +4,17 @@ For SubArray, There's basically four algo that can be used
 3-> Prefix Sum: Used when we need to deal w/ -ve numbers involved in array and for subArray where we've to keep process from starting of array
 4-> Suffix Sum: Used when we need to process sum from end of the array. ex. Removing minimal elements from the end so the remaining subarray meets some criteria.
                                                                             Problems like “maximum score by removing elements from either end.”
+// NOTE:
+Use Prefix + HashMap when:
+
+✔ counting subarrays
+✔ exact property (==k, ==xor, divisible by k)
+✔ negative numbers allowed
+✔ order matters, contiguity required
+✔ want O(n)
+
+When not to use HashMap w Prefix/Suffix:
+
+query L..R sums
+Kadane’s algorithm
+max/min subarray sum (not count)
