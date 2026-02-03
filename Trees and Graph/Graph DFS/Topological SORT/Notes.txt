@@ -1,0 +1,5 @@
+To use it in CYCLE DETECION:
+in vistiing Array: assing 2 if current Node is compeltely processed. 
+If it's still in process assign 1 
+& if you get visited[node] == 1 anywhere means this node was already in process  
+& it appeared again
