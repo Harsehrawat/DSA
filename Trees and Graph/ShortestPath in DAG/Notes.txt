@@ -1,0 +1,18 @@
+// Suppose order of toposort is : 6, 5, 4, 2, 0, 1, 3
+// I had misconecption that it means.. from anyNode on left i can reach anyNode on right
+// But what topoOrder actually means is: there is surely no way to reach anyNode on left from anyNode on right
+
+// assiging dist[]:
+// NOTE: i'll only relax nodes w dist[ nodes] != infinity  
+
+// Also.. for DFS topoOrder.. i start from node 0 & go deep Down
+// Stack : LastIn FirstOut..  & vistied[]
+// so while going in deep dfs .. i'll keep pushing into stack the adjNodes which contains outgoing connectingNodes 
+// as 6 has no incomingNode.. means no node can reach to 6.. it will be at top of my stack at last 
+
+// for BFS topoOrder.. 
+// i use Queue: FirstIn FirstOut & incomingDegree[]
+// i know 6 has no incomingNode.. so i'll smartly put 6 first into q.. 
+// for 6.. i'll go the the adjNodes from 6 & as 6 is removed from graph.. i'll decrease the degree[ adjNodes] by 1
+
+
