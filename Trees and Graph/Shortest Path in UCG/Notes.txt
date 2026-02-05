@@ -1,0 +1,6 @@
+Dijkstra' Algo will be used.
+
+Remember: 
+if no Cycle + +ve/-ve weight: topo + dist[]
+if cycle + +ve weight: PQ + dist[] ( Dijkstra)
+if cycle + -ve weight: ___________. ( Bellman Ford)
