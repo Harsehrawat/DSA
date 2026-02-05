@@ -1,0 +1,71 @@
+Question: 
+okay.. now tell me one thing. after using stops in pq & 
+other improvements why can't I use dist[] & return dist[ src] ( and let me know if I can) 
+And if pq is min-heapified based on cost.. 
+why in plain Dijkstra we use dist[] 
+& not return it directly when node == dest there 
+as in that too we min-heapify based on weight
+
+
+Explaination:
+Part 1
+“After adding stops to PQ, why can’t I just use dist[] and return dist[src]?”
+Short answer (conceptual):
+Because dist[node] is no longer a single value.
+With stops, the state is not just the node anymore.
+In plain Dijkstra
+State = node
+dist[u] = shortest distance from src → u
+Key invariant:
+The first time a node is popped from the min-heap, its shortest distance is finalized forever.
+So dist[u] makes sense as one value per node.
+In “Cheapest Flights with K Stops”
+State = (node, stops)
+Now the meaning changes:
+dist[u] = shortest distance to u
+❌ This is no longer sufficient, because:
+You may reach u cheaply with many stops
+Or expensively with few stops
+Only one of those may lead to a valid path to dst
+So the correct representation would be:
+dist[u][s] = cheapest cost to reach u using s stops
+A 1D dist[] loses information.
+Concrete failure example
+src → A → B → dst   (cheap, but too many stops)
+src → C → dst       (expensive, valid)
+If dist[B] was set cheaply using too many stops, you’d prune the valid path.
+That’s why you cannot use a single dist[] here.
+✔️ You can use:
+int[][] dist = new int[n][k+2];
+But not:
+int[] dist
+Part 2
+“If PQ is min-heap on cost, why in plain Dijkstra we use dist[] instead of just returning when node == dest?”
+This is subtle — and the answer is:
+👉 You actually CAN return immediately in plain Dijkstra.
+But only under specific conditions.
+Why early return works in plain Dijkstra
+Conditions:
+All edge weights are non-negative
+PQ is ordered by total distance
+You pop the destination from the PQ
+Then:
+The distance you popped is guaranteed to be the shortest path.
+So this is valid:
+if (node == dest) return dist;
+Many competitive programming solutions do exactly this.
+So why do we still use dist[]?
+1️⃣ To avoid reprocessing worse paths
+Without dist[], you would:
+Push the same node many times
+Re-explore suboptimal paths
+dist[] allows this pruning:
+if (newDist < dist[v]) {
+    dist[v] = newDist;
+}
+2️⃣ To handle full shortest-path computation
+Often the problem asks:
+Shortest path to all nodes
+Or path reconstruction
+Early exit only works when:
+You care about one destination
