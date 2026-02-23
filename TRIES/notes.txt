@@ -1,0 +1,26 @@
+-> Firstly, i've mentioned Tries/Foundation/files as package Foundation .. WHY ?
+
+// benefit: 
+Packages solve:
+
+1.Name conflicts
+Example:
+Trie in one project
+Trie in another library
+
+
+2.Code organization
+Foundation.Trie
+Foundation.Main
+
+3.Access control
+Package-private becomes meaningful.
+
+-> useof bin.. To manage .class files in a seperate folder
+// to compile my .java into bin: 
+// 1. go to folder contianing bin ( i.e. DSA/TRIES)
+// 2. javac -d bin Foundation/*.java ( -d: destination)
+
+// to run .class files present in bin 
+// 1. go to folder contianing bin ( i.e. DSA/TRIES)
+// 2. java -cp bin Foundation.Main  ( -cp: comile path)
