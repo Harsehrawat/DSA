@@ -1,0 +1,9 @@
+| Interface      | Meaning           |
+| -------------- | ----------------- |
+| Runnable       | Do                |
+| Supplier       | Give              |
+| Consumer       | Take              |
+| Function       | Convert           |
+| Predicate      | Check             |
+| UnaryOperator  | Modify same type  |
+| BinaryOperator | Combine same type |
