@@ -7,3 +7,45 @@
 | Predicate      | Check             |
 | UnaryOperator  | Modify same type  |
 | BinaryOperator | Combine same type |
+
+
+1️⃣ Function<T, R>
+R apply(T t);
+
+✔ Takes → T
+✔ Returns → R
+✔ Used for → Transformation
+
+Example:
+
+Function<Integer, String> f = n -> "Num: " + n;
+2️⃣ Consumer<T>
+void accept(T t);
+
+✔ Takes → T
+✔ Returns → nothing
+✔ Used for → Performing action
+
+Example:
+
+Consumer<String> c = s -> System.out.println(s);
+3️⃣ Supplier<T>
+T get();
+
+✔ Takes → nothing
+✔ Returns → T
+✔ Used for → Supplying values
+
+Example:
+
+Supplier<Double> s = () -> Math.random();
+4️⃣ Predicate<T>
+boolean test(T t);
+
+✔ Takes → T
+✔ Returns → boolean
+✔ Used for → Condition checking
+
+Example:
+
+Predicate<Integer> p = n -> n > 10;
