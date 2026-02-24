@@ -8,35 +8,23 @@ public class Main{
     public static void main(String[] args) {
         Stack stack = new Stack(5);
 
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-
-        try {
-            System.out.println(stack.peek());
-        } catch (RuntimeException e) {
-            System.out.println("Error: " + e.getMessage());
+        for(int i = 0; i<=6; i++){
+            stack.pushSafe(
+                i,
+                val -> System.out.println(val + " added into stack!"), 
+                () -> { System.out.println("Stack Overflow"); }
+            );
         }
+        
+        stack.peekSafe(
+            val -> System.out.println(val + " peeked"), 
+            () -> { System.out.println(" Stack underflow for Peek"); }
+        );
 
-        stack.push(4);
-        stack.push(5);
-        // Handle overflow safely
-        try {
-            stack.push(6);
-        } catch (RuntimeException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-
-        System.out.println("Size: " + stack.size());
-
-        stack.clear();
-
-        // Handle underflow safely
-        try {
-            System.out.println(stack.peek());
-        } catch (RuntimeException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+        stack.popSafe(
+            val -> System.out.println(val + " popped"), 
+            () -> { System.out.println(" Stack underflow for Pop"); }
+        );
 
     }
 
